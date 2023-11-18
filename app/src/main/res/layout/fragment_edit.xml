@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/constraintLayout2"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    tools:context=".view.fragment.EditFragment">
+
+    <TextView
+        android:id="@+id/editTitle"
+        style="@style/HeaderTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Edit Jadwal Minum Obat"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/editGejalaPenyakit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:hint="Gejala Penyakit"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTitle">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/inputEditGejalaPenyakit"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        </com.google.android.material.textfield.TextInputEditText>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/editNamaObat"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:hint="Nama Obat"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editGejalaPenyakit">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/inputEditNamaObat"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        </com.google.android.material.textfield.TextInputEditText>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/editJumlahObatWaktu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:hint="Banyak obat yang diminum dalam 1 waktu"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.218"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editNamaObat">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/inputEditJumlabObatWaktu"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        </com.google.android.material.textfield.TextInputEditText>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/editJumlahObatSehari"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:hint="Berapa kali obat yang diminum selama sehari"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editJumlahObatWaktu"
+        app:layout_editor_absoluteY="200dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/inputEditJumlahObatSehari"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        </com.google.android.material.textfield.TextInputEditText>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/editWaktuObatDiminum"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:hint="Berapa lama obat akan diminum"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editJumlahObatSehari"
+        app:layout_editor_absoluteY="200dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/inputEditWaktuObatDiminum"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        </com.google.android.material.textfield.TextInputEditText>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.button.MaterialButtonToggleGroup
+        android:id="@+id/edit_ToggleGroup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:gravity="center_horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editWaktuObatDiminum"
+        app:singleSelection="true">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/editSebelumMakan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sebelum Makan" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/editSetelahMakan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Setelah Makan" />
+
+    </com.google.android.material.button.MaterialButtonToggleGroup>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/dummy1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:clickable="false"
+        android:hint="Masukkan waktu"
+        android:longClickable="false"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/edit_AddInput"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edit_ToggleGroup"
+        app:layout_constraintVertical_bias="0.0">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/dummy2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:allowClickWhenDisabled="false" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/edit_AddInput"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="+"
+        app:layout_constraintBottom_toBottomOf="@+id/dummy1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/dummy1" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
