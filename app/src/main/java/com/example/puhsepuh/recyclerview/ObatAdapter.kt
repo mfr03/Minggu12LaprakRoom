@@ -1,14 +1,19 @@
 package com.example.puhsepuh.recyclerview
 
+import android.content.Context
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.puhsepuh.databinding.ItemObatBinding
 import com.example.puhsepuh.model.ObatData
+import com.example.puhsepuh.view.fragment.HomeFragment
 
-
-class ObatAdapter(private val obatList: List<ObatData>)
+typealias OnDeleteButtonClickListener = (obatData: ObatData) -> Unit
+typealias OnEditButtonClickListener = (obatData: ObatData) -> Unit
+class ObatAdapter(private val obatList: List<ObatData>,
+                  private val OnEditButtonClickListener: OnEditButtonClickListener,
+                  private val OnDeleteButtonClickListener: OnDeleteButtonClickListener)
     : RecyclerView.Adapter<ObatAdapter.ObatViewHolder>() {
 
         inner class ObatViewHolder(private val binding: ItemObatBinding)
@@ -20,10 +25,10 @@ class ObatAdapter(private val obatList: List<ObatData>)
                         dosis.text = obatData.dosisMakan.toString() + "x sehari"
 
                         editButton.setOnClickListener {
-                            Log.d("ObatAdapter", "Edit button clicked")
+                            OnEditButtonClickListener(obatData)
                         }
                         deleteButton.setOnClickListener {
-                            Log.d("ObatAdapter", "Delete button clicked")
+                            OnDeleteButtonClickListener(obatData)
                         }
                     }
                 }

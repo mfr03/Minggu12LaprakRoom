@@ -1,4 +1,4 @@
-package com.example.puhsepuh.viewmodel
+package com.example.puhsepuh.viewmodel.viewmodel
 
 import androidx.lifecycle.ViewModel
 

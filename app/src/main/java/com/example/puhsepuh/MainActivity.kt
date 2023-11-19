@@ -2,12 +2,9 @@ package com.example.puhsepuh
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.puhsepuh.databinding.ActivityMainBinding
-import com.example.puhsepuh.viewmodel.HomeViewModel
-import com.example.puhsepuh.recyclerview.ObatAdapter
 
 class MainActivity : AppCompatActivity() {
 
@@ -15,18 +12,29 @@ class MainActivity : AppCompatActivity() {
         ActivityMainBinding.inflate(layoutInflater)
     }
 
-    private lateinit var homeViewModel: HomeViewModel;
+    private val app by lazy {
+        application as App
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
-
-        homeViewModel = ViewModelProvider(this).get(HomeViewModel::class.java)
 
         with(binding){
             val navController = findNavController(R.id.nav_host_fragment)
             bottomNavigationView.setupWithNavController(navController)
 
         }
+
+//        val allData: LiveData<List<ObatData>> = app.getAllData()
+//        allData.observeForever { obat ->
+//            obat?.let {
+//                for(data in it) {
+//                    Log.d("MainActivity", "onCreate: ${data.id}")
+//                    Log.d("MainActivity", "onCreate: ${data.namaObat}")
+//                }
+//            }
+//        }
     }
+
 }

@@ -2,22 +2,23 @@ package com.example.puhsepuh.view.fragment
 
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.puhsepuh.viewmodel.HomeViewModel
-import com.example.puhsepuh.R
+import com.example.puhsepuh.App
+import com.example.puhsepuh.viewmodel.viewmodel.HomeViewModel
 import com.example.puhsepuh.databinding.FragmentHomeBinding
 import com.example.puhsepuh.recyclerview.ObatAdapter
+import com.example.puhsepuh.viewmodel.factory.CustomViewModelFactory
 
 class HomeFragment : Fragment() {
 
     companion object {
         fun newInstance() = HomeFragment()
+
     }
 
 
@@ -34,25 +35,40 @@ class HomeFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(HomeViewModel::class.java)
-        viewModel.fetchData()
-        val data = viewModel.data.value
+        val factory = CustomViewModelFactory(requireActivity().application as App)
+        viewModel = ViewModelProvider(this, factory).get(HomeViewModel::class.java)
+
         with(binding) {
 
             val action = HomeFragmentDirections.actionHomeFragmentToAddFragment()
-            Log.d("HomeFragment", "$action")
             addButton.setOnClickListener {
                 findNavController().navigate(action)
-                Log.d("HomeFragment", "Add button clicked")
             }
 
-            Log.d("HomeFragment", data.toString())
-            val adapter = ObatAdapter(listOf(data!!))
-            obatRecyclerView.apply {
-                this.adapter = adapter
-                layoutManager = LinearLayoutManager(context)
+            viewModel.getAllData().observeForever() { obat ->
+                val adapter = ObatAdapter(obat,
+                    {obatData ->
+                        val action = HomeFragmentDirections.actionHomeFragmentToEditFragment()
+                        findNavController().apply{
+                            currentBackStackEntry?.
+                            savedStateHandle?.set("obatId", obatData.id)
+                        }.navigate(action)
+                    },
+
+                    {obatData ->
+                        viewModel.deleteObat(obatData)
+                    }
+                )
+
+
+                obatRecyclerView.apply {
+                    this.adapter = adapter
+                    layoutManager = LinearLayoutManager(requireContext())
+                }
             }
         }
+
     }
+
 
 }
