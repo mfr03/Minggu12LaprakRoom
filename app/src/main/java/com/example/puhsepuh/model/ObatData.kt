@@ -6,9 +6,10 @@ import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import androidx.room.TypeConverter
+import androidx.room.TypeConverters
 
 @Entity(tableName = "obat_table")
-
+@TypeConverters(StringListConverter::class)
 data class ObatData(
     @PrimaryKey(autoGenerate = true)
     @NonNull
@@ -34,5 +35,5 @@ data class ObatData(
 
     // figure out how to add a list of string, later cause fuck this shit
     @ColumnInfo(name = "waktu_notifikasi")
-    val waktuNotifikasi: String,
+    val waktuNotifikasi: List<String>,
 )

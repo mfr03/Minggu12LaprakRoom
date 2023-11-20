@@ -46,7 +46,7 @@ dependencies {
     // added dependencies
     implementation("androidx.navigation:navigation-fragment-ktx:2.7.4")
     implementation("androidx.navigation:navigation-ui-ktx:2.7.4")
-
+    implementation ("com.google.code.gson:gson:2.8.8")
     implementation("androidx.room:room-runtime:2.6.0")
     kapt("androidx.room:room-compiler:2.6.0")
 

@@ -9,4 +9,8 @@ class EditViewModel(private val application: App) : ViewModel() {
     fun getObat(id: Int): LiveData<ObatData> {
         return application.getObat(id)
     }
+
+    fun updateObat(obat: ObatData) {
+        application.update(obat)
+    }
 }
