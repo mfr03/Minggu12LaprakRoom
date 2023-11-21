@@ -10,6 +10,7 @@
         android:id="@+id/constraintLayout2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@color/shrekGreenLite"
         android:padding="16dp"
         tools:context=".view.fragment.AddFragment">
 
@@ -129,12 +130,14 @@
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/addSebelumMakan"
+                style="@style/element.button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Sebelum Makan" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/addSetelahMakan"
+                style="@style/element.button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Setelah Makan" />
@@ -168,6 +171,7 @@
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/add_AddInput"
+            style="@style/element.button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="+"
@@ -177,10 +181,12 @@
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/addSubmit"
+            style="@style/element.button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:text="Submit"
+            app:backgroundTint="#1BD15D"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/dummy1" />

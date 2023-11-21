@@ -21,8 +21,14 @@ class ObatAdapter(private val obatList: List<ObatData>,
                 fun bind(obatData: ObatData) {
                     with(binding) {
                         Log.d("ObatAdapter", obatData.toString())
-                        resep.text = obatData.namaObat
+                        resep.text = "Obat ${obatData.gejalaPenyakit} - ${obatData.namaObat}"
                         dosis.text = obatData.dosisMakan.toString() + "x sehari"
+
+                        var temp: String = ""
+                        for(item in obatData.waktuNotifikasi) {
+                            temp += item + "\n"
+                        }
+                        waktu.text = temp
 
                         editButton.setOnClickListener {
                             OnEditButtonClickListener(obatData)

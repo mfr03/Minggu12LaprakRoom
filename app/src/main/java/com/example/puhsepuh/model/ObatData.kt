@@ -33,7 +33,7 @@ data class ObatData(
     @ColumnInfo(name = "setelah_makan")
     val isSetelahMakan: Boolean?,
 
-    // figure out how to add a list of string, later cause fuck this shit
+
     @ColumnInfo(name = "waktu_notifikasi")
     val waktuNotifikasi: List<String>,
 )

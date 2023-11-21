@@ -73,7 +73,6 @@ class AddFragment : Fragment() {
         }
     }
 
-//    TODO("get a way to make custom textinput to send the variables over")
 
     private fun addTimeElements(): TextInputLayout {
 
